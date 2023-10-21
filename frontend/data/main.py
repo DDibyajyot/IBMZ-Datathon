@@ -45,3 +45,39 @@ with title:
             unsafe_allow_html=True
             )
         redirect_button("http://stackoverflow.com","Devpost Submission >")
+
+with about_info:
+    col1, col2, col3, col4, col5 = st.columns(5)
+    with col1:
+        st.markdown("""<p style="color: #FFF; font-size: 20px; font-style: normal; font-weight: 100; margin-top: 150px; border-bottom: solid #EC0164;">About</p>""", unsafe_allow_html=True)
+    st.markdown("""<p style="color: #FFF; font-size: 16px; font-style: normal; font-weight: 100;">
+    Medical image registration refers to the process of aligning two image datasets into one coordinate system for analysis. For our research, we have chosen to focus 
+    on images of eye retinas because its avalible datasets made it a good starting point. //Tech about tech-stack a bit
+    </p>""", unsafe_allow_html=True)
+
+with dataset:
+    col1, col2, col3, col4, col5 = st.columns(5)
+    with col1:
+        st.markdown("""<p style="color: #FFF; font-size: 20px; font-style: normal; font-weight: 100; margin-top: 20px; border-bottom: solid #EC0164;">Dataset</p>""", unsafe_allow_html=True)
+    st.markdown("""<p style="color: #FFF; font-size: 16px; font-style: normal; font-weight: 100;">
+    Medical image registration refers to the process of aligning two image datasets into one coordinate system for analysis. For our research, we have chosen to focus 
+    on images of eye retinas because its avalible datasets made it a good starting point. //Tech about tech-stack a bit
+    </p>""", unsafe_allow_html=True)
+
+with features:
+    col1, col2, col3, col4, col5 = st.columns(5)
+    with col1:
+        st.markdown("""<p style="color: #FFF; font-size: 20px; font-style: normal; font-weight: 100; margin-top: 20px; border-bottom: solid #EC0164;">Features</p>""", unsafe_allow_html=True)
+    st.markdown("""<p style="color: #FFF; font-size: 16px; font-style: normal; font-weight: 100;">
+    Medical image registration refers to the process of aligning two image datasets into one coordinate system for analysis. For our research, we have chosen to focus 
+    on images of eye retinas because its avalible datasets made it a good starting point. //Tech about tech-stack a bit
+    </p>""", unsafe_allow_html=True)
+
+with model_training:
+    col1, col2, col3, col4, col5 = st.columns(5)
+    with col1:
+        st.markdown("""<p style="color: #FFF; font-size: 20px; font-style: normal; font-weight: 100; margin-top: 20px; border-bottom: solid #EC0164;">Model Training</p>""", unsafe_allow_html=True)
+    st.markdown("""<p style="color: #FFF; font-size: 16px; font-style: normal; font-weight: 100;">
+    Medical image registration refers to the process of aligning two image datasets into one coordinate system for analysis. For our research, we have chosen to focus 
+    on images of eye retinas because its avalible datasets made it a good starting point. //Tech about tech-stack a bit
+    </p>""", unsafe_allow_html=True)
