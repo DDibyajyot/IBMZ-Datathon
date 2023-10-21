@@ -46,6 +46,33 @@ with title:
             )
         redirect_button("http://stackoverflow.com","Devpost Submission >")
 
+
+with st.form(key='my_form'):
+    st.markdown("""<p style="color: #FFF; font-size: 20px; font-style: normal; font-weight: 100; margin-top: 150px; border-bottom: solid #EC0164;">Upload Images</p>""", unsafe_allow_html=True)
+    col1, col2 = st.columns(2)
+    with col1:
+        uploaded_file = st.file_uploader("Upload Retina Image 1 (Source Image): ", type=['jpg'])
+    with col2:
+        uploaded_file2 = st.file_uploader("Upload Retina Image 2 (Target Image):", type=['jpg'])
+
+    submit_button = st.form_submit_button(label='Submit')
+
+if submit_button:
+    if uploaded_file is not None and uploaded_file2 is not None:
+        # Upload images to your Flask API
+        files = {'image1': uploaded_file, 'image2': uploaded_file2}
+        response = requests.post(
+            'http://your-flask-api-url/api/process_images', files=files)
+
+        if response.status_code == 200:
+            # Process the response from your Flask API
+            result = response.json()
+            st.image(result['aligned_image'],
+                     caption='Aligned Image', use_column_width=True)
+        else:
+            st.error('Image processing failed. Please try again.')
+
+
 with about_info:
     col1, col2, col3, col4, col5 = st.columns(5)
     with col1:
