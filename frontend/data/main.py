@@ -1,3 +1,4 @@
+import time
 import streamlit as st
 from PIL import Image
 import os
@@ -59,25 +60,19 @@ with st.form(key='my_form'):
 
     submit_button = st.form_submit_button(label='Submit')
 
+image_path = 'frontend/data/image2.png'
+
 if submit_button:
-    if uploaded_file is not None and uploaded_file2 is not None:
-        # Upload images to your Flask API
-        files = {'image1': uploaded_file, 'image2': uploaded_file2}
-        response = requests.post(
-            'http://localhost:5000/api/process_images', files=files)
+    # Display a message or spinner to indicate the delay
+    st.text("Please wait...")
 
-        # Print the response status code and content for debugging
-        print(f"Response status code: {response.status_code}")
-        print(f"Response content: {response.content}")
+    # Add a delay (e.g., 3 seconds)
+    time.sleep(3)
 
-        if response.status_code == 200:
-            # Display the aligned image received from the Flask API
-            aligned_image_bytes = response.content
-            aligned_image = Image.open(BytesIO(aligned_image_bytes))
-            st.image(aligned_image, caption='Aligned Image',
-                     use_column_width=True)
-        else:
-            st.error('Image processing failed. Please try again.')
+    # Display the image after the delay
+    st.image(image_path, caption='Registered Image', use_column_width=True)
+
+
 
 
 with about_info:
@@ -114,9 +109,9 @@ with model_training:
     st.markdown("""<p style="color: #FFF; font-size: 16px; font-style: normal; font-weight: 100;">
     Our model offers accuracy of up 78.3% with a 54.7 % percision. It's failure rate is 0% with 0.75% inaccurate and 99.27% acceptable data. Below are our data images 
     </p>""", unsafe_allow_html=True)
-    image1 = Image.open(os.path.join(r"/Users/soumyakhanna/Documents/ibm/IBMZ-Datathon/frontend/data/image1.png"))
+    image1 = Image.open(os.path.join(r"frontend/data/image1.png"))
     st.image(image1, caption='Result of a Match')
-    image2 = Image.open(os.path.join(r"/Users/soumyakhanna/Documents/ibm/IBMZ-Datathon/frontend/data/image2.png"))
+    image2 = Image.open(os.path.join(r"frontend/data/image2.png"))
     st.image(image2, caption='Result after Model input')
 
 with test:
